@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "587462000857",
+    "project_id": "emotion-2dd35",
+    "storage_bucket": "emotion-2dd35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587462000857:android:6e72747fd26c3f76f33ec8",
+        "android_client_info": {
+          "package_name": "com.example.emotion"
+        }      },
+      "oauth_client": [
+        {
+          "client_id": "587462000857-9gu730th7ab398p5ad3uoqbm2hh5rgla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMw2fVOWWm0ceR9E7G-89gbVT-J2EgA2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587462000857-9gu730th7ab398p5ad3uoqbm2hh5rgla.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
