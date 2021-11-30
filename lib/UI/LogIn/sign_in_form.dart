@@ -1,3 +1,4 @@
+import 'package:emotion/Authentication/authentication.dart';
 import 'package:emotion/UI/LogIn/widgets/form_error.dart';
 import 'package:emotion/helper/keyboard.dart';
 import 'package:emotion/routes/routes.dart';
@@ -11,8 +12,8 @@ class SignInForm extends StatefulWidget {
   _SignInFormState createState() => _SignInFormState();
 }
 class _SignInFormState extends State<SignInForm> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -42,52 +43,39 @@ class _SignInFormState extends State<SignInForm> {
             const SizedBox(height: 20),
             buildPasswordFormField(),
             const SizedBox(height: 20),
-            Row(
-              children: [
-                Checkbox(
-                  value: remember,
-                  activeColor: Color(0xFFFF7643),
-                  onChanged: (value){
-                    setState((){
-                      remember = value;
-                    });
-                  },
-                ),
-                const Text("Remember me"),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () => print("Forgot Pasword"),
-                  child: const Text("Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline)),
-                )
-              ],
-            ),
             FormError(errors: errors),
             const SizedBox(height: 20),
             ConstrainedBox(
                 constraints:
-                const BoxConstraints.tightFor(width: 400,height: 50),
+                const BoxConstraints.tightFor(width: 400,height: 70),
                 child: ElevatedButton(
                   onPressed: () async{
-                    // await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    //     email: _emailController.text,
-                    //     password: _passwordController.text
-                    // );
                     if(_formKey.currentState!.validate()){
                       _formKey.currentState!.save();
                       KeyboardUtil.hideKeyboard(context);
-                      Navigator.of(context).pushNamed(Routes.LoginSuccess);
                     }
+                    setState((){
+                      signin(email!, password!);
+                      FirebaseAuth.instance.idTokenChanges().listen((User? user) {
+                        if(user == null){
+                          print("User is currently signed out");
+                        }
+                        else{
+                          print("Logged in");
+                          Navigator.of(context).pushNamed(Routes.LoginSuccess);
+                        }
+                      });
+                    });
                   },
                   child: const Text('Log In',
                     style: TextStyle(
                         fontFamily: 'Helvetica Neue',
-                        fontSize: 19,
+                        fontSize: 24,
                         fontWeight: FontWeight.w600,
                         color: Colors.white
                     ),),
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.deepOrange.withOpacity(0.8),
+                      primary: const Color(0xFFb91372),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)
                       )
@@ -135,6 +123,7 @@ class _SignInFormState extends State<SignInForm> {
           gapPadding: 10,
         )
       ),
+      style: const TextStyle(color: Colors.white),
     );
   }
   TextFormField buildPasswordFormField(){
@@ -180,6 +169,7 @@ class _SignInFormState extends State<SignInForm> {
           gapPadding: 10,
         )
       ),
+      style: const TextStyle(color: Colors.white),
     );
   }
 }

@@ -1,10 +1,9 @@
 import 'package:emotion/UI/LogIn/google_sign_in/google_sign_in.dart';
 import 'package:emotion/widgets/home_page.dart';
 import 'package:emotion/routes/RouteGenerator.dart';
-import 'package:emotion/theme.dart';
+import 'package:emotion/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'UI/Welcome Screen/walking_through.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {

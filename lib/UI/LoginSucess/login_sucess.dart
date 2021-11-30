@@ -30,13 +30,13 @@ class LogInSucess extends StatelessWidget {
                   fontSize: 24,
                   color: Colors.grey
                 ),),
-                const Spacer(),
+                const Spacer(flex:2),
               ],
             ),
             const SizedBox(height: 80),
             Image.asset('assets/images/successful.png',
-            width: size.width/3,
-              height: size.height/3,
+            width: size.width/2,
+              height: size.height/2.7,
               fit: BoxFit.cover
             ),
             const SizedBox(height: 80),
@@ -44,21 +44,16 @@ class LogInSucess extends StatelessWidget {
               'You are successfully Log In \n Click the button below to entry',
               style: TextStyle(
                 fontFamily: 'Arial',
-                fontSize: 16,
+                fontSize: 20,
                 fontWeight: FontWeight.w400,
-                shadows:<Shadow> [
-                  Shadow(
-                    offset: Offset(6,0),
-                    blurRadius: 6.0,
-                    color: Colors.black26,)
-                ]
+                color: Colors.black87,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             ConstrainedBox(
                 constraints:
-                const BoxConstraints.tightFor(width: 300,height: 50),
+                const BoxConstraints.tightFor(width: 300,height: 70),
                 child: ElevatedButton(
                   onPressed: (){
                       Navigator.pushNamed(context,Routes.FacePage);
@@ -71,7 +66,7 @@ class LogInSucess extends StatelessWidget {
                         color: Colors.white
                     ),),
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.deepOrange.withOpacity(0.8),
+                      primary: const Color(0xFFb91372).withOpacity(0.8),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)
                       )

@@ -17,11 +17,17 @@ class FormError extends StatelessWidget {
 Row formErrorText({required String error}) {
   return Row(
     children: [
-      const Icon(Icons.error, size: 14),
+      const Icon(Icons.error, size: 14,color: Colors.white),
       const SizedBox(
-        width: 10,
+        width: 14,
       ),
-      Text(error),
+      Text(error,
+      style: const TextStyle(
+        fontFamily: 'Helvetica Neue',
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: Colors.white
+      ),),
     ],
   );
 }
